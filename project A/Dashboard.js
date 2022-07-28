@@ -1,21 +1,23 @@
 $(document).ready(function(){
-    $('#formCategory').on('sbmit', function(event){
-event.preventDefault(); 
-var image = $("#ImgCategory").val();
-if(image == ''){
-    alert("ajouter un image")
-}else{
-    $.ajax({
-        URL : "insert.php",
-        method : "POST",
-        data : new FormData(this),
-        contentType : false,
-        caches : false,
-        prosseData : false,
-        success:function(data){
-            $("#ImgCategory").val();
-        }
-    })
-}
+    $('form.formCategory').on('submit',function(e){
+        e.preventDefault()
+        console.log("hello")
+            $.ajax({
+                type:"POST",
+                url:"insert.php",
+                data:new FormData(this),
+                contentType: false,
+                cache: false,
+                processData:false,
+                success:function(result){
+                    if(result == 1){
+                        $("#message").html("cette email est deja connect");
+                    }
+    
+                }
+            })
+            });
     });
-})
+
+
+console.log(nameCategory)

@@ -20,7 +20,7 @@ $(document).ready(function(){
                     $("#message").html("cette email est deja connect");
                 }
                 else{
-                    window.location="Dashboard.php";
+                    window.location="login.php";
 
                 }
 
